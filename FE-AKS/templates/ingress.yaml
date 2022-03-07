@@ -15,5 +15,7 @@ spec:
         paths:
           - path: {{ .Values.ingress.path }}
             backend:
-              serviceName: application-frontend-service
-              servicePort: {{ .Values.image.containerPort }}
+              service:
+                name: application-frontend-service
+                port:
+                  number: {{ .Values.image.containerPort }}
