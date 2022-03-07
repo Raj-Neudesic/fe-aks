@@ -16,5 +16,5 @@ spec:
           - path: {{ .Values.ingress.path }}
             pathType: Prefix
             backend:
-              servicename: application-frontend-service
-              serviceport: {{ .Values.image.containerPort }}
+              serviceName: application-frontend-service
+              servicePort: {{ .Values.image.containerPort }}
