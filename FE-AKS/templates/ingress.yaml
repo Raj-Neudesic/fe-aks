@@ -1,4 +1,4 @@
-apiVersion: networking.k8s.io/v1
+apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: application-frontend-ingress  
@@ -6,8 +6,8 @@ metadata:
     app: application-frontend-ingress
   annotations:
     kubernetes.io/ingress.class: azure/application-gateway
-    appgw.ingress.kubernetes.io/use-private-ip: "true"
-    appgw.ingress.kubernetes.io/override-frontend-port: "4000"
+    #appgw.ingress.kubernetes.io/use-private-ip: "true"
+    #appgw.ingress.kubernetes.io/override-frontend-port: "4000"
     #appgw.ingress.kubernetes.io/health-probe-path: "/.well-known/apollo/server-health"
 spec:
   rules:
@@ -16,7 +16,5 @@ spec:
           - path: {{ .Values.ingress.path }}
             pathType: Prefix
             backend:
-              service:
-                name: application-frontend-service
-                port:
-                  number: {{ .Values.image.containerPort }}
+              servicename: application-frontend-service
+              serviceport: {{ .Values.image.containerPort }}
