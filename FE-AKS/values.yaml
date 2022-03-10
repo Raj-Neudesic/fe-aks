@@ -16,7 +16,7 @@ image:
 
 
 service:
-  type: ClusterIP
+  type: nodePort
   port: 80
 
 ingress:
