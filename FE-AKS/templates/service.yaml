@@ -5,7 +5,7 @@ metadata:
   labels:
     app: application-frontend-service
 spec:
-  type: ClusterIP
+  type: NodePort
   ports:
     - port: {{ .Values.image.containerPort }}
       targetPort: {{ .Values.image.containerPort }}
